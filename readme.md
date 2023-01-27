@@ -2,9 +2,9 @@
 
 ## What is .NET?
 Multiplatform environment for software development, including:
-..* Desktop apps
-..* Web apps
-..* Web services
-..* OS services
-..* Games
-..* IoT Apps
+··* Desktop apps
+··* Web apps
+··* Web services
+··* OS services
+··* Games
+··* IoT Apps
