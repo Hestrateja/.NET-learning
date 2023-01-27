@@ -53,6 +53,6 @@ You have 2 options for downloading and installing .NET, though one of them is on
 * Managing the Visual Studio modules **this option is only useful for Visual Studio users.**
 
 ## Note for using certain programs that are Linux based
-Turn on *Windows Subystem for Linux* and *Virtual Machine Platform* features inside *Windows Features*.
+Turn on *"Windows Subystem for Linux"* and *"Virtual Machine Platform"* features inside *"Windows Features"*.
 
 
