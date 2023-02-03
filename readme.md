@@ -89,7 +89,7 @@ There are several options to add Packages to your project:
 
 Docker can also be used to create several *"containers"* which are independent from each other with their respective SDKs installed, these *"containers"* can be used as separate machines to run different programs. To install packages into a Docker container you can use the commands found in [*docker hub*](https://hub.docker.com/) which are usually *"docker pull"* followed by the package identifier. It then creates an *"image"*, found with the CLI command *"docker images"* that can be then run by using the command *"docker run"*.
 
-# Compilation model
+## Compilation model
 
 Roslyn is the code compiler used in .NET in both C# and Visual Basic programming languages. It is developed by Microsoft and is open source.
 
@@ -98,3 +98,18 @@ The compiler is found inside each .NET SDK version folder and is identified with
 You can execute those dlls as if they were dotnet projects and with a "*.cs"* file as a parameter, given it has all the references solved, will create an executable (*".exe"*).
 
 The *".exe"* file is a *Common Intermediate Language* (**CIL**) that then can be run by the *Common Language Runtime* (**CLR**) available in .NET.
+
+## .NET assemblies
+
+There are 2 types of assemblies, executables or *".exe"* and dynamic-link library"*.dll*":
+
+* Executables can be run and will behave accordingly to how they are programmed
+* Dynamic-link libraries are used to share code.
+
+Both DLLs and executables have intermediate language produced by the compiler that then is transformed by the CLR into machine language.
+
+## How is code executed in .NET?
+
+The following image describes how the code is executed, from the C# or F# scripts until the Machine Language:
+
+![Execution environment](ProcessOfExecutingCode.jpg)
