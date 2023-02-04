@@ -152,5 +152,6 @@ Which way you choose to publish your application depends on you. However they bo
 * A specific platform is targeted when deploying the application. Testing can be done to ensure the applications runs smoothly in every target platform.
 #### Disadvantages
 * Larger deployments. The .NET runtime and all its dependencies need to be included in your application taking more hard drive space.
-* You can only update the .NET version on which the app is running by releasing a new version of it.
+* The.NET version on which the app is running can only be updated by releasing a new version of it.
 
+** In addition to the 2 application publishing ways, you can choose to publish them as a [*"single-file"*](https://learn.microsoft.com/en-us/dotnet/core/deploying/single-file/). Using this option alongside others like [*"assembly trimming"*](https://learn.microsoft.com/en-us/dotnet/core/deploying/trimming/trim-self-contained) and [*"ahead of time deployment"*](https://learn.microsoft.com/en-us/dotnet/core/deploying/native-aot/) will reduce considerably the size of the application. However it may have some problems like API incompatibilities as shown on the single-file page of .NET documentation.
