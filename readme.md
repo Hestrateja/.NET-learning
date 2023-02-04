@@ -113,3 +113,44 @@ Both DLLs and executables have intermediate language produced by the compiler th
 The following image describes how the code is executed, from the C# or F# scripts until the Machine Language:
 
 ![Execution environment](ProcessOfExecutingCode.jpg)
+
+The order is as follows for the C# compiler "*csc.dll*":
+1. You write your program/library in either C# or F#
+2. The scripts are compiled with Roslyn to create the *Common Intermediate Language* (CIL)files, either *.dll* or *.exe*.
+3. When you run your program, the *Common Language Runtime* compiles Just In Time (JIT) the CIL files and transform them into Machine Language using RyuJIT.
+
+### Clarifications about the CLR
+The CLR has the following characteristics:
+* JIT compilation.
+* A common system of types, no matter what language you wrote the program in, the Machine Language will be the same. For instance, a "*uint*" in C# would be the same as a "*UInteger*" in Visual Basic in terms of Machine Language commands.
+* An Exception Handler that will notify the user in case something goes wrong with the program.
+* A Garbage Collector that will free memory periodically.
+
+
+## Publishing with .NET
+You can deploy .NET applications in 2 ways:
+
+1. Framework-dependant executables
+2. Self-containing executables
+
+Which way you choose to publish your application depends on you. However they both have pros and cons.
+
+### Framework-dependant executables
+
+#### Advantages
+* Cross-platform: If a machine has the .NET runtime installed with all the dependencies, it can run the .NET application.
+* Faster deployment: As the .NET runtime isn't included in each build it is faster to deploy.
+
+#### Disadvantages
+* Requires pre-installing the .NET runtime in order to run the application.
+* The .NET version on which the application is running may change according to the .NET version installed with the machine. This can lead to unexpected behaviours.
+
+### Self-containing executables
+
+#### Advantages
+* The .NET version on which the application runs is set in stone once you deploy it.
+* A specific platform is targeted when deploying the application. Testing can be done to ensure the applications runs smoothly in every target platform.
+#### Disadvantages
+* Larger deployments. The .NET runtime and all its dependencies need to be included in your application taking more hard drive space.
+* You can only update the .NET version on which the app is running by releasing a new version of it.
+
