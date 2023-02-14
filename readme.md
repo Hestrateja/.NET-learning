@@ -117,7 +117,7 @@ The following image describes how the code is executed, from the C# or F# script
 The order is as follows for the C# compiler "*csc.dll*":
 1. You write your program/library in either C# or F#
 2. The scripts are compiled with Roslyn to create the *Common Intermediate Language* (CIL)files, either *.dll* or *.exe*.
-3. When you run your program, the *Common Language Runtime* compiles Just In Time (JIT) the CIL files and transform them into Machine Language using RyuJIT.
+3. When you run your program, the *Common Language Runtime* compiles Just In Time (JIT) the CIL files and transform them into Machine Language using RyuJIT.This process is called *"execution"*.
 
 ### Clarifications about the CLR
 The CLR has the following characteristics:
@@ -154,4 +154,18 @@ Which way you choose to publish your application depends on you. However they bo
 * Larger deployments. The .NET runtime and all its dependencies need to be included in your application taking more hard drive space.
 * The.NET version on which the app is running can only be updated by releasing a new version of it.
 
-**In addition to the 2 application publishing ways, you can choose to publish them as a [*"single-file"*](https://learn.microsoft.com/en-us/dotnet/core/deploying/single-file/). Using this option alongside others like [*"assembly trimming"*](https://learn.microsoft.com/en-us/dotnet/core/deploying/trimming/trim-self-contained) and [*"ahead of time deployment"*](https://learn.microsoft.com/en-us/dotnet/core/deploying/native-aot/) will reduce considerably the size of the application. However it may have some problems like API incompatibilities as shown on the single-file page of .NET documentation.** 
+**In addition to the 2 application publishing ways, you can choose to publish them as a [*"single-file"*](https://learn.microsoft.com/en-us/dotnet/core/deploying/single-file/). Using this option alongside others like [*"assembly trimming"*](https://learn.microsoft.com/en-us/dotnet/core/deploying/trimming/trim-self-contained) and [*"ahead of time deployment"*](https://learn.microsoft.com/en-us/dotnet/core/deploying/native-aot/) will reduce considerably the size of the application. However, it may have some problems like API incompatibilities as shown on the single-file page of .NET documentation.** 
+
+
+## About MSBuild
+All the .NET projects use MSBuild as an engine to build its applications. The files ending with a "*.~proj*" are instructions for this engine. When creating a new project a "*.csproj*" file will automatically be created.
+
+When opening these files you will notice that that the file is XML-formatted, meaning it is based in tags. 
+
+Amongst the more redundant tags we find the following:
+
+* Target tag: Used to contain tasks, these tasks are similar to functions.
+* Task tag: There are a set of predetermined tasks in MSBuild which you can find [here](https://learn.microsoft.com/en-us/visualstudio/msbuild/msbuild-task-reference?view=vs-2022). An example would be the "*Message*" task that is a classic Log.
+* PropertyGroup tag: This tag is a parent to child properties. Then the child properties can be referenced in other parts of MSBuild.
+
+[//]: # (Code generators, IDK what they are useful for)
